@@ -131,7 +131,7 @@ export default function CreateAgentPage() {
                     className="w-full rounded-xl border border-gray-700/50 bg-gray-800/50 px-4 py-3 text-white placeholder-gray-500 backdrop-blur-sm transition-all duration-200 focus:border-indigo-500 focus:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-indigo-500/20"
                   />
                   <p className="mt-2 text-xs font-medium text-gray-500">
-                    This will create: <span className="text-indigo-400 font-mono">{formData.ensLabel ? `${formData.ensLabel}.agenttrade.eth` : "..."}</span>
+                    This will create: <span className="text-indigo-400 font-mono">{formData.ensLabel ? `${formData.ensLabel}.agentrade.eth` : "..."}</span>
                   </p>
                 </div>
               </div>

@@ -23,7 +23,7 @@ contract DeployTradingAgentRegistry is Script {
     address constant BASE_MAINNET_PYTH = 0x8250f4aF4B972684F7b336503E2D6dFeDeB1487a;
     address constant ENS_REGISTRY = 0x00000000000C2E074eC69A0dFb2997BA6C7d2e1e;
     
-    // Default base node for "agenttrade.eth" (calculate with: cast namehash "agenttrade.eth")
+    // Default base node for "agentrade.eth" (calculate with: cast namehash "agentrade.eth")
     // If you don't have this domain, you'll need to calculate your own or use a test value
     bytes32 constant DEFAULT_BASE_NODE = 0x0000000000000000000000000000000000000000000000000000000000000000;
 

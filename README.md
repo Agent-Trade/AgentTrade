@@ -1,13 +1,13 @@
-# AgentTrade
+# Agentrade
 
-**AgentTrade** is a decentralized autonomous trading platform that enables users to create ENS-named trading agents that execute trades automatically based on real-time price triggers. Built on Base blockchain, it integrates Pyth Network for price feeds, 1inch for optimal swap execution, and Privy for seamless wallet management.
+**Agentrade** is a decentralized autonomous trading platform that enables users to create ENS-named trading agents that execute trades automatically based on real-time price triggers. Built on Base blockchain, it integrates Pyth Network for price feeds, 1inch for optimal swap execution, and Privy for seamless wallet management.
 
 ## 🎯 Overview
 
-AgentTrade simplifies automated trading on blockchain by providing:
+Agentrade simplifies automated trading on blockchain by providing:
 
 - **Automated Execution**: Trading agents monitor price feeds and execute trades automatically when trigger conditions are met
-- **ENS-Named Agents**: Each trading agent gets its own human-readable ENS subname (e.g., `my-agent.agenttrade.eth`)
+- **ENS-Named Agents**: Each trading agent gets its own human-readable ENS subname (e.g., `my-agent.agentrade.eth`)
 - **Real-Time Price Feeds**: Powered by Pyth Network for accurate, low-latency price data
 - **Optimal Swaps**: Integrated with 1inch aggregation protocol for best execution rates
 - **Non-Custodial**: Users maintain full control with Privy embedded wallets
@@ -106,7 +106,7 @@ Create trading agents with custom strategies:
 ## 📁 Project Structure
 
 ```
-agentTrade/
+agentrade/
 ├── contracts/              # Smart contracts
 │   ├── src/
 │   │   ├── TradingAgentRegistry.sol
@@ -235,7 +235,7 @@ agentTrade/
 1. Navigate to **Create Agent** page
 2. Fill in agent details:
    - **Agent Name**: Unique identifier
-   - **ENS Label**: Subname label (e.g., "my-agent" → `my-agent.agenttrade.eth`)
+   - **ENS Label**: Subname label (e.g., "my-agent" → `my-agent.agentrade.eth`)
    - **Price Feed**: Select asset to monitor (ETH, BTC, USDC)
    - **Trigger Price**: Price threshold
    - **Trigger Condition**: Above or below threshold

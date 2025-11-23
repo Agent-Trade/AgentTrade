@@ -25,7 +25,7 @@ export function Navigation() {
               <span className="relative z-10 text-sm font-bold text-white">A</span>
               <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-indigo-400 to-purple-500 opacity-0 transition-opacity group-hover:opacity-100"></div>
             </div>
-            <span className="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent group-hover:from-indigo-400 group-hover:to-purple-400 transition-all duration-300">AgentTrade</span>
+            <span className="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent group-hover:from-indigo-400 group-hover:to-purple-400 transition-all duration-300">Agentrade</span>
           </Link>
 
           {/* Desktop Navigation Links */}

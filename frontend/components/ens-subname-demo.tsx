@@ -16,7 +16,7 @@ export function EnsSubnameDemo() {
     useEnsSubname();
 
   const [agentLabel, setAgentLabel] = useState("");
-  const [parentDomain, setParentDomain] = useState("agenttrade.eth");
+  const [parentDomain, setParentDomain] = useState("agentrade.eth");
   const [setAsPrimary, setSetAsPrimary] = useState(false);
   const [result, setResult] = useState<string>("");
 
@@ -91,7 +91,7 @@ export function EnsSubnameDemo() {
             type="text"
             value={parentDomain}
             onChange={(e) => setParentDomain(e.target.value)}
-            placeholder="agenttrade.eth"
+            placeholder="agentrade.eth"
             className="w-full rounded-lg border border-gray-700 bg-gray-800 px-4 py-2 text-white placeholder-gray-500 focus:border-indigo-500 focus:outline-none"
           />
         </div>
