@@ -122,7 +122,7 @@ export function isValidEnsName(name: string): boolean {
  */
 export function formatAgentSubname(
   agentLabel: string,
-  parentDomain: string = "alatfi.eth"
+  parentDomain: string = "agenttrade.eth"
 ): string {
   const normalizedLabel = normalizeEnsName(agentLabel);
   const normalizedParent = parentDomain.toLowerCase().trim();

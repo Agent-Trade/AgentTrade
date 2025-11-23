@@ -23,7 +23,7 @@ import {
 
 export interface CreateAgentSubnameParams {
   agentLabel: string; // e.g., "my-agent"
-  parentDomain: string; // e.g., "yourdomain.eth" or "alatfi.eth"
+  parentDomain: string; // e.g., "yourdomain.eth" or "agenttrade.eth"
   ownerAddress: Address;
   chainId: number;
   setAsPrimary?: boolean; // Whether to set as primary name
