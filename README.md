@@ -383,6 +383,10 @@ curl -X POST http://localhost:3000/api/monitor \
 - [1inch API Docs](https://docs.1inch.io/)
 - [ENS Documentation](https://docs.ens.domains/)
 
+## Project demos
+
+- [Video Demo](https://www.loom.com/share/bd7b7d0bc9e44e9db5109627355e3f38)
+
 ## 🤝 Contributing
 
 Contributions are welcome! Please:
