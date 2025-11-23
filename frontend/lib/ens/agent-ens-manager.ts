@@ -81,7 +81,7 @@ export async function createAgentSubname(
       label,
       ownerAddress,
       resolver,
-      0n
+      BigInt(0)
     );
 
     // Execute transaction

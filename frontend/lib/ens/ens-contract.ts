@@ -74,7 +74,7 @@ export function encodeSetSubnodeRecord(
   label: Hash,
   owner: Address,
   resolver: Address = "0x0000000000000000000000000000000000000000" as Address,
-  ttl: bigint = 0n
+  ttl: bigint = BigInt(0)
 ): `0x${string}` {
   return encodeFunctionData({
     abi: ENS_REGISTRY_ABI,
