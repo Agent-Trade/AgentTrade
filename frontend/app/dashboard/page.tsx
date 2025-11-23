@@ -2,11 +2,10 @@
 
 import { useState, useEffect } from "react";
 import { useConnection, useChainId, useReadContract, useWriteContract } from "wagmi";
-import { Address, Hash } from "viem";
+import { Hash } from "viem";
 import { Navigation } from "@/components/navigation";
 import { 
   getAgentRegistryAddress, 
-  generateAgentId,
   TRADING_AGENT_REGISTRY_ABI,
   type Agent 
 } from "@/lib/agent/agent-registry";
@@ -20,7 +19,6 @@ export default function DashboardPage() {
   const [agentIds, setAgentIds] = useState<Hash[]>([]);
   const [agents, setAgents] = useState<Agent[]>([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
 
   // Get user's agents
   const { data: userAgentIds, refetch: refetchAgents } = useReadContract({

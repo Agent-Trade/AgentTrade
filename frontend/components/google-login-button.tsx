@@ -1,15 +1,20 @@
 "use client";
 
+import { useState } from "react";
 import { useLoginWithOAuth } from "@privy-io/react-auth";
 
 export function GoogleLoginButton() {
-  const { login: loginWithOAuth, isLoading } = useLoginWithOAuth();
+  const { initOAuth } = useLoginWithOAuth();
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleGoogleLogin = async () => {
     try {
-      await loginWithOAuth({ provider: "google" });
+      setIsLoading(true);
+      await initOAuth({ provider: "google" });
     } catch (error) {
       console.error("Google login failed:", error);
+    } finally {
+      setIsLoading(false);
     }
   };
 

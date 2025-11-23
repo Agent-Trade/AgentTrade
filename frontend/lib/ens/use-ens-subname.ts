@@ -4,8 +4,8 @@
  * Provides hooks for creating ENS subnames and setting primary names
  */
 
-import { useWriteContract, useReadContract, useChainId, useSwitchChain } from "wagmi";
-import { Address, Hash } from "viem";
+import { useWriteContract, useChainId, useSwitchChain } from "wagmi";
+import { Address } from "viem";
 import { useState } from "react";
 import { mainnet } from "wagmi/chains";
 import {

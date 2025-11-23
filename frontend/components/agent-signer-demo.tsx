@@ -3,22 +3,20 @@
 import { useState } from "react";
 import { useAgentSigner } from "@/lib/privy/agent-signer";
 import { useAgentPermissions, AgentPermissionType } from "@/lib/privy/agent-permissions";
-import { useConnection, useChainId } from "wagmi";
+import { useChainId } from "wagmi";
 import { Hash, Address } from "viem";
 import { keccak256, toBytes } from "viem";
 
 export function AgentSignerDemo() {
-  const { address } = useConnection();
   const chainId = useChainId();
   const { signAgentExecution, signAgentMessage, canSignForAgent, isReady, walletAddress } = useAgentSigner();
-  const { hasPermission, grantPermission, revokePermission, getAgentPermissions } = useAgentPermissions();
+  const { hasPermission, grantPermission, getAgentPermissions } = useAgentPermissions();
 
   const [agentId, setAgentId] = useState("");
   const [agentOwner, setAgentOwner] = useState("");
   const [action, setAction] = useState("execute_trigger");
   const [message, setMessage] = useState("");
   const [signature, setSignature] = useState<string>("");
-  const [permissions, setPermissions] = useState<AgentPermissionType[]>([]);
   const [selectedPermission, setSelectedPermission] = useState<AgentPermissionType>(AgentPermissionType.EXECUTE_TRIGGER);
   const [result, setResult] = useState<string>("");
 
@@ -131,7 +129,7 @@ export function AgentSignerDemo() {
 
       if (success) {
         setResult(`Permission ${selectedPermission} granted successfully`);
-        setPermissions(getAgentPermissions().map((p) => p.permissions[0] as AgentPermissionType));
+        // Permissions are managed by the useAgentPermissions hook
       } else {
         setResult("Failed to grant permission");
       }

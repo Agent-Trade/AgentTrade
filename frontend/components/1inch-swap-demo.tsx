@@ -4,10 +4,8 @@ import { useState } from "react";
 import { useConnection, useChainId, useWriteContract } from "wagmi";
 import {
   getSwapQuote,
-  getSwapTx,
   formatTokenAmount,
   parseTokenAmount,
-  SwapParams,
   ONEINCH_CHAINS,
 } from "@/lib/1inch/1inch-service";
 import { getTokenAddress } from "@/lib/1inch/1inch-contract";

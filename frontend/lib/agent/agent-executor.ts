@@ -84,14 +84,6 @@ export async function executeAgentTrigger(
       };
     }
 
-    // Estimate gas for the transaction
-    // Pyth update fees are typically small, but we need to account for them
-    const gasEstimate = await publicClient.estimateGas({
-      account: account.address,
-      to: registryAddress,
-      data: "0x" as `0x${string}`, // Placeholder
-    });
-
     // Execute checkAndExecuteTrigger
     // Note: This requires ETH for Pyth update fees
     const hash = await walletClient.writeContract({

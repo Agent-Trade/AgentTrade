@@ -15,8 +15,6 @@ import {
 import {
   getEnsRegistryAddress,
   getPublicResolverAddress,
-  encodeSetSubnodeRecord,
-  encodeSetName,
   ENS_REGISTRY_ABI,
   ENS_REVERSE_REGISTRAR_ABI,
 } from "./ens-contract";
@@ -75,15 +73,6 @@ export async function createAgentSubname(
     // Get resolver address (use public resolver)
     const resolver = getPublicResolverAddress(chainId);
 
-    // Encode transaction
-    const data = encodeSetSubnodeRecord(
-      parentNode,
-      label,
-      ownerAddress,
-      resolver,
-      BigInt(0)
-    );
-
     // Execute transaction
     const registryAddress = getEnsRegistryAddress(chainId);
     const txHash = await writeContract({
@@ -118,14 +107,14 @@ export async function createAgentSubname(
 /**
  * Set primary ENS name for an address
  * @param name Full ENS name (e.g., "myagent.yourdomain.eth")
- * @param address Address to set primary name for
- * @param chainId Chain ID
+ * @param _address Address to set primary name for
+ * @param _chainId Chain ID
  * @param writeContract Write contract function
  */
 export async function setPrimaryName(
   name: string,
-  address: Address,
-  chainId: number,
+  _address: Address,
+  _chainId: number,
   writeContract: any
 ): Promise<{ success: boolean; txHash?: string; error?: string }> {
   try {
@@ -165,16 +154,16 @@ export async function setPrimaryName(
 
 /**
  * Get agent ENS name from registry
- * @param agentId Agent ID
- * @param registryAddress TradingAgentRegistry contract address
- * @param chainId Chain ID
- * @param readContract Read contract function
+ * @param _agentId Agent ID
+ * @param _registryAddress TradingAgentRegistry contract address
+ * @param _chainId Chain ID
+ * @param _readContract Read contract function
  */
 export async function getAgentEnsName(
-  agentId: Hash,
-  registryAddress: Address,
-  chainId: number,
-  readContract: any
+  _agentId: Hash,
+  _registryAddress: Address,
+  _chainId: number,
+  _readContract: any
 ): Promise<string | null> {
   try {
     // This would call the registry contract to get agent info

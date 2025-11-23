@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useConnection, useChainId } from "wagmi";
+import { useConnection } from "wagmi";
 import { useEnsSubname } from "@/lib/ens/use-ens-subname";
 import {
   formatAgentSubname,
@@ -11,8 +11,7 @@ import {
 
 export function EnsSubnameDemo() {
   const { address } = useConnection();
-  const chainId = useChainId();
-  const { createSubname, setPrimary, isCreating, isSettingPrimary, error } =
+  const { createSubname, isCreating, isSettingPrimary, error } =
     useEnsSubname();
 
   const [agentLabel, setAgentLabel] = useState("");

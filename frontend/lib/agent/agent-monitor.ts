@@ -6,7 +6,7 @@
  */
 
 import { Address, Hash } from "viem";
-import { createPublicClient, http, parseAbi } from "viem";
+import { createPublicClient, http } from "viem";
 import { baseSepolia, base } from "viem/chains";
 import {
   getAgentRegistryAddress,
@@ -14,9 +14,6 @@ import {
   type Agent,
 } from "./agent-registry";
 import { fetchBinaryPriceUpdates } from "@/lib/privy/pyth-service";
-import { getPriceFeedId } from "@/lib/privy/pyth-contract";
-import { executeAgentSwap, type AgentSwapConfig } from "@/lib/agent-swap-executor";
-import { getTokenAddress } from "@/lib/1inch/1inch-contract";
 
 export interface MonitoringResult {
   agentId: Hash;
@@ -35,28 +32,6 @@ export interface MonitoringStats {
   executed: number;
   errors: number;
   results: MonitoringResult[];
-}
-
-/**
- * Get all active agents from the registry
- */
-async function getActiveAgents(
-  chainId: number,
-  publicClient: any
-): Promise<{ agentId: Hash; agent: Agent }[]> {
-  const registryAddress = getAgentRegistryAddress(chainId);
-
-  // Get total agent count
-  const agentCount = await publicClient.readContract({
-    address: registryAddress,
-    abi: TRADING_AGENT_REGISTRY_ABI,
-    functionName: "agentCount",
-  });
-
-  // For now, we'll need to track agents differently
-  // In a production system, you'd maintain an index of agent IDs
-  // For this implementation, we'll return an empty array and require agent IDs to be passed
-  return [];
 }
 
 /**
@@ -116,11 +91,11 @@ async function getAgentDetails(
  * Execute trigger on-chain and perform swap
  */
 async function executeTrigger(
-  agentId: Hash,
+  _agentId: Hash,
   agent: Agent,
   chainId: number,
-  publicClient: any,
-  walletClient?: any
+  _publicClient: any,
+  _walletClient?: any
 ): Promise<{ success: boolean; txHash?: string; error?: string }> {
   try {
     // Fetch price update data for Pyth
@@ -133,14 +108,6 @@ async function executeTrigger(
         error: "Failed to fetch price update data",
       };
     }
-
-    // Estimate gas for updatePriceFeeds
-    const registryAddress = getAgentRegistryAddress(chainId);
-    const gasEstimate = await publicClient.estimateGas({
-      account: agent.owner,
-      to: registryAddress,
-      data: "0x" as `0x${string}`, // Will be replaced by actual call
-    });
 
     // For now, we'll return that execution needs to be done manually
     // In a production system, you'd use a wallet with funds to execute

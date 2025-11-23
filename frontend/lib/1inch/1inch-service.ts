@@ -56,7 +56,6 @@ export interface SwapParams {
 }
 
 // 1inch API endpoints (for aggregation API v6)
-const ONEINCH_API_BASE = "https://api.1inch.dev";
 const ONEINCH_AGGREGATION_V6 = "/swap/v6.0";
 const ONEINCH_APPROVE_V5 = "/approve/v5.2";
 

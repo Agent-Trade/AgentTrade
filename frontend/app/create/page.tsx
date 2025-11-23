@@ -51,7 +51,7 @@ export default function CreateAgentPage() {
         address: getAgentRegistryAddress(chainId),
         abi: TRADING_AGENT_REGISTRY_ABI,
         functionName: "createAgent",
-        args: [agentId, formData.ensLabel, strategy],
+        args: [agentId, formData.ensLabel, strategy as any],
       });
 
       router.push("/dashboard");

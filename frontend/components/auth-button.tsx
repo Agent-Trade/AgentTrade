@@ -11,8 +11,8 @@ export function AuthButton() {
   // All hooks must be called at the top level, before any conditional returns
   const { ready, authenticated, login, logout } = usePrivy();
   const { wallets } = useWallets();
-  const { initOAuth, loading: isOAuthLoading, state } = useLoginWithOAuth();
-  const { copy, copied } = useCopyToClipboard();
+  const { initOAuth, state } = useLoginWithOAuth();
+  const { copy } = useCopyToClipboard();
   const [showToast, setShowToast] = useState(false);
 
   // Memoize wallet lookup
@@ -50,27 +50,6 @@ export function AuthButton() {
   }
 
   if (!authenticated) {
-    const handleGoogleLogin = async () => {
-      try {
-        if (!process.env.NEXT_PUBLIC_PRIVY_APP_ID) {
-          alert("Privy App ID is not configured. Please set NEXT_PUBLIC_PRIVY_APP_ID in your .env file.");
-          return;
-        }
-        
-        console.log("Initiating Google OAuth...", { 
-          appId: process.env.NEXT_PUBLIC_PRIVY_APP_ID?.substring(0, 10) + "...",
-          state: state 
-        });
-        
-        await initOAuth({ provider: "google" });
-        console.log("OAuth initiated successfully");
-      } catch (error) {
-        console.error("Google login failed:", error);
-        const errorMessage = error instanceof Error ? error.message : String(error);
-        alert(`Google login failed: ${errorMessage}\n\nMake sure:\n1. Google OAuth is enabled in Privy Dashboard\n2. Redirect URIs are configured\n3. Your app ID is correct`);
-      }
-    };
-
     return (
       <div className="flex items-center gap-2">
         <button

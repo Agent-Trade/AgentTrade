@@ -5,7 +5,6 @@
  */
 
 import { Address, encodeFunctionData, parseAbi, Hash } from "viem";
-import { ENS_REGISTRY } from "./ens-service";
 
 // ENS Registry ABI (minimal for subname creation)
 export const ENS_REGISTRY_ABI = parseAbi([
@@ -41,7 +40,7 @@ export const ENS_CONTRACTS = {
  * Get ENS registry address for a chain
  * Note: ENS operates on mainnet, but contracts are the same
  */
-export function getEnsRegistryAddress(chainId: number): Address {
+export function getEnsRegistryAddress(_chainId: number): Address {
   // ENS is on mainnet, but address is same across chains
   return ENS_CONTRACTS.MAINNET.registry;
 }
@@ -49,14 +48,14 @@ export function getEnsRegistryAddress(chainId: number): Address {
 /**
  * Get reverse registrar address
  */
-export function getReverseRegistrarAddress(chainId: number): Address {
+export function getReverseRegistrarAddress(_chainId: number): Address {
   return ENS_CONTRACTS.MAINNET.reverseRegistrar;
 }
 
 /**
  * Get public resolver address
  */
-export function getPublicResolverAddress(chainId: number): Address {
+export function getPublicResolverAddress(_chainId: number): Address {
   return ENS_CONTRACTS.MAINNET.publicResolver;
 }
 

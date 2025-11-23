@@ -194,34 +194,3 @@ function MobileNavLink({
   );
 }
 
-function NavLink({ 
-  href, 
-  isActive, 
-  children 
-}: { 
-  href: string; 
-  isActive: boolean; 
-  children: React.ReactNode;
-}) {
-  return (
-    <Link
-      href={href}
-      className={`
-        relative px-4 py-2 text-sm font-medium transition-all duration-200
-        ${isActive 
-          ? "text-white" 
-          : "text-gray-400 hover:text-white"
-        }
-      `}
-    >
-      <span className="relative z-10">{children}</span>
-      {isActive && (
-        <span className="absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-indigo-500 to-purple-500" />
-      )}
-      {!isActive && (
-        <span className="absolute inset-0 rounded-lg bg-gray-800/50 opacity-0 hover:opacity-100 transition-opacity -z-0" />
-      )}
-    </Link>
-  );
-}
-

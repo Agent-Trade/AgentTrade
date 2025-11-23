@@ -200,15 +200,15 @@ export async function getSwapTx(
  * Get token balance for an address
  * Note: 1inch doesn't have a direct balance API, use RPC or Web3 API
  * This is a placeholder - implement with your RPC provider
- * @param tokenAddress Token contract address (use native token address for ETH)
- * @param walletAddress Wallet address to check
- * @param chainId Chain ID
+ * @param _tokenAddress Token contract address (use native token address for ETH)
+ * @param _walletAddress Wallet address to check
+ * @param _chainId Chain ID
  * @returns Token balance as string
  */
 export async function getTokenBalance(
-  tokenAddress: string,
-  walletAddress: string,
-  chainId: number
+  _tokenAddress: string,
+  _walletAddress: string,
+  _chainId: number
 ): Promise<string> {
   // This should be implemented using your RPC provider (wagmi, viem, etc.)
   // For now, return placeholder

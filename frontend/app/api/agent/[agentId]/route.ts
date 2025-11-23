@@ -5,12 +5,13 @@ import { TRADING_AGENT_REGISTRY_ABI, getAgentRegistryAddress } from "@/lib/agent
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { agentId: string } }
+  { params }: { params: Promise<{ agentId: string }> }
 ) {
   try {
     const { searchParams } = new URL(request.url);
     const chainId = parseInt(searchParams.get("chainId") || "84532");
-    const agentId = params.agentId as Hash;
+    const { agentId: agentIdParam } = await params;
+    const agentId = agentIdParam as Hash;
 
     // Get chain
     const chain = chainId === 8453 ? base : baseSepolia;

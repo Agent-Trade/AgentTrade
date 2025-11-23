@@ -24,12 +24,12 @@ export interface PythPrice {
 /**
  * Encode updatePriceFeeds transaction
  * @param updateData Array of price update data (binary format from Hermes)
- * @param pythContractAddress Pyth contract address
+ * @param _pythContractAddress Pyth contract address (unused, kept for API consistency)
  * @returns Encoded transaction data
  */
 export function encodeUpdatePriceFeeds(
   updateData: `0x${string}`[],
-  pythContractAddress: Address
+  _pythContractAddress: Address
 ) {
   return encodeFunctionData({
     abi: PYTH_ABI,

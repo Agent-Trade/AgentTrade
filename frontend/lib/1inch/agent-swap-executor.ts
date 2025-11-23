@@ -15,20 +15,9 @@ import {
   validateSwapQuote,
   formatTokenAmount,
   parseTokenAmount,
-  SwapParams,
   SwapQuote,
-  ONEINCH_CHAINS,
 } from "./1inch-service";
 import { get1inchRouterAddress, getTokenAddress } from "./1inch-contract";
-import { useWriteContract, useReadContract } from "wagmi";
-import { parseAbi } from "viem";
-
-const ERC20_ABI = parseAbi([
-  "function approve(address spender, uint256 amount) external returns (bool)",
-  "function allowance(address owner, address spender) external view returns (uint256)",
-  "function balanceOf(address account) external view returns (uint256)",
-  "function transfer(address to, uint256 amount) external returns (bool)",
-]);
 
 export interface AgentSwapConfig {
   agentId: string;
@@ -169,7 +158,7 @@ export async function executeAgentSwap(
 
       if (BigInt(allowance) < BigInt(amountWei)) {
         // Need approval
-        const approvalTx = await getApprovalTx(
+        await getApprovalTx(
           fromTokenAddress,
           "unlimited",
           chainId

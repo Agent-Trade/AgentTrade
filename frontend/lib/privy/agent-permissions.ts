@@ -6,8 +6,6 @@
  */
 
 import { Address, Hash } from "viem";
-import { useReadContract, useWriteContract } from "wagmi";
-import { parseAbi } from "viem";
 
 /**
  * Agent permission structure
@@ -31,20 +29,9 @@ export enum AgentPermissionType {
 }
 
 /**
- * ABI for permission management (if we add it to the contract)
- * For now, this is a frontend-only permission system
- */
-const PERMISSION_ABI = parseAbi([
-  "function hasPermission(bytes32 agentId, address signer, string permission) external view returns (bool)",
-  "function grantPermission(bytes32 agentId, address signer, string permission, uint256 expiresAt) external",
-  "function revokePermission(bytes32 agentId, address signer, string permission) external",
-]);
-
-/**
  * Hook for managing agent permissions
  */
 export function useAgentPermissions(agentId?: Hash) {
-  const { writeContractAsync } = useWriteContract();
 
   /**
    * Check if a signer has permission for an agent

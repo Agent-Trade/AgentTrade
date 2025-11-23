@@ -7,7 +7,13 @@
 
 import { usePrivy, useWallets } from "@privy-io/react-auth";
 import { useSignTypedData, useSignMessage } from "wagmi";
-import { Address, Hash, TypedDataDomain, TypedDataField } from "viem";
+import { Address, Hash, TypedDataDomain } from "viem";
+
+// Define TypedDataField type for EIP-712
+type TypedDataField = {
+  name: string;
+  type: string;
+};
 
 /**
  * Agent execution message structure for EIP-712 signing

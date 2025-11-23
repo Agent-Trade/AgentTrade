@@ -2,7 +2,7 @@ import { useState, useCallback, useRef } from "react";
 
 export function useCopyToClipboard() {
   const [copied, setCopied] = useState(false);
-  const timeoutRef = useRef<NodeJS.Timeout>();
+  const timeoutRef = useRef<NodeJS.Timeout | undefined>(undefined);
 
   const copy = useCallback(async (text: string): Promise<boolean> => {
     if (!text) return false;

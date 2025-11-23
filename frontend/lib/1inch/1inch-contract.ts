@@ -4,7 +4,7 @@
  * Helper functions for interacting with 1inch contracts on-chain
  */
 
-import { Address, encodeFunctionData, parseAbi } from "viem";
+import { Address, parseAbi } from "viem";
 
 // Common token addresses
 export const TOKEN_ADDRESSES = {
@@ -67,7 +67,7 @@ export function getTokenAddress(
  * Note: This is a helper - actual swap should use 1inch API for best routing
  */
 export function encodeSwapTx(
-  routerAddress: Address,
+  _routerAddress: Address,
   swapData: string
 ): `0x${string}` {
   // 1inch router uses a generic swap function
