@@ -4,6 +4,7 @@
       "path": "/api/monitor/cron",
       "schedule": "*/5 * * * *"
     }
-  ]
+  ],
+  "rootDirectory": "frontend"
 }
 
