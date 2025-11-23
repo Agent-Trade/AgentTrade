@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { createPublicClient, http, Address, Hash } from "viem";
+import { createPublicClient, http, Hash } from "viem";
 import { baseSepolia, base } from "viem/chains";
 import { TRADING_AGENT_REGISTRY_ABI, getAgentRegistryAddress } from "@/lib/agent/agent-registry";
 

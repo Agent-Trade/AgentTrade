@@ -143,7 +143,7 @@ export const TRADING_AGENT_REGISTRY_ABI = [
 
 // Contract addresses (update with deployed addresses)
 export const AGENT_REGISTRY_ADDRESSES: Record<number, Address> = {
-  84532: "0x0000000000000000000000000000000000000000" as Address, // Base Sepolia - UPDATE THIS
+  84532: "0x06c0cc944dbECe2cBe4d2Ac8e326a16AfFbFD345" as Address, // Base Sepolia - UPDATE THIS
   8453: "0x0000000000000000000000000000000000000000" as Address, // Base Mainnet - UPDATE THIS
 };
 
