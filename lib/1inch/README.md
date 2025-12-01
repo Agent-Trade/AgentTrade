@@ -73,7 +73,7 @@ await writeContract({
 ### Setup Steps
 
 1. Get your API key from: https://portal.1inch.dev/
-2. Create `.env.local` in the `frontend` directory
+2. Create `.env.local` in the project root directory
 3. Add: `NEXT_PUBLIC_1INCH_API_KEY=your_api_key_here`
 4. Restart your dev server
 
